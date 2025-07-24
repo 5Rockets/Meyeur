@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Cartes Meyeur — Tirage aléatoire</title>
+  <style>
+    body { background: #111; color: #eee; font-family: sans-serif; text-align: center; padding: 40px; }
+    .carte { margin: 20px auto; padding: 20px; max-width: 600px;
+             background: #222; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,.7);
+             font-size: 1.2rem; }
+    button { margin: 10px; padding: 10px 20px; font-size: 1rem;
+             border: none; border-radius: 5px;
+             cursor: pointer; }
+    button.intro { background: #555; color: #fff; }
+    button.sexy { background: #b11226; color: #fff; }
+    button.kinky { background: #3a0b24; color: #fff; }
+  </style>
+</head>
+<body>
+
+  <h1>Cartes Meyeur — À tirer au hasard</h1>
+  <button class="intro">Introspective</button>
+  <button class="sexy">Sexy</button>
+  <button class="kinky">Kinky</button>
+
+  <div id="revealed" class="carte">Clique sur un bouton pour tirer une carte</div>
+
+  <script>
+    const cartes = {
+      introspective: [
+        "Une peur que j’ai parfois dans notre relation… et d’où elle vient selon moi.",
+        "Ce que j’apprends sur moi-même grâce à toi, même si ce n’est pas toujours facile.",
+        "Quand je doute de moi, voici ce que j’aimerais que tu me rappelles.",
+        "Une partie de moi que j’ai longtemps cachée… mais que tu me donnes envie de montrer.",
+        "Un besoin que j’ai parfois du mal à exprimer dans notre relation.",
+        "Un schéma du passé que j’ai peur de répéter avec toi.",
+        "Une chose que tu fais qui me touche plus que tu ne le penses.",
+        "Voici comment je me sens quand je me sens vraiment entendu par toi.",
+        "Une partie de moi que je suis en train de guérir… et que ta présence rend plus douce.",
+        "Ce que je veux devenir pour toi… mais aussi pour moi-même.",
+        "Une façon dont j’aimerais qu’on évolue ensemble dans les prochains mois.",
+        "Un moment où j’ai eu du mal à te comprendre… mais que j’ai envie de mieux saisir.",
+        "Ce que j’ai appris de notre façon de gérer les désaccords.",
+        "Quand je pense à notre futur, voici ce qui m’enthousiasme le plus… et ce qui m’effraie un peu.",
+        "Comment je me sens face à l’idée d’être vulnérable avec toi, même dans l’intimité."
+      ],
+      sexy: [
+        "Une chose que tu fais pendant nos moments intimes qui me rend complètement fou/folle…",
+        "Une partie de ton corps que j’ai envie de redécouvrir avec plus d’attention.",
+        "Un fantasme que j’ai imaginé… et que j’aimerais t’avouer.",
+        "Une caresse ou un geste que j’aimerais recevoir plus souvent.",
+        "Le souvenir d’un moment intime où j’ai senti qu’on faisait bien plus que juste l’amour.",
+        "Un mot ou un son que tu fais et qui m’enflamme instantanément.",
+        "Ce que j’ai envie d’explorer avec toi, tout en prenant mon temps…",
+        "Un lieu insolite ou symbolique où j’aimerais te faire l’amour.",
+        "Une phrase ou un compliment sexy que j’aimerais que tu me dises en plein moment.",
+        "Quand je pense à ton odeur, ton goût ou ta chaleur… il se passe quoi dans mon corps.",
+        "Un moment où je me suis senti(e) puissamment désiré(e) par toi…",
+        "Un vêtement (ou l’absence de vêtement) dans lequel je rêve de te voir.",
+        "Un de tes regards ou gestes discrets qui m’a fait comprendre que tu avais envie.",
+        "Une chose que j’aimerais t’apprendre sur ce qui me fait plaisir.",
+        "Ce que j’aimerais qu’on invente ensemble entre les draps."
+      ],
+      kinky: [
+        "Un rôle ou scénario que j’aimerais essayer avec toi (même si c’est juste pour le fun).",
+        "Un moment où j’ai adoré te laisser le contrôle… ou le prendre.",
+        "Un accessoire ou un jouet que j’aimerais utiliser avec toi (ou sur toi 😈).",
+        "Un mot de soumission, de provocation ou de pouvoir que j’aimerais t’entendre dire.",
+        "Une règle ou un défi sexy que je te proposerais pour une soirée “hors norme”.",
+        "Un endroit de ton corps que je veux explorer de façon plus “audacieuse”.",
+        "Quand tu me guides ou me retiens… ce que je ressens vraiment.",
+        "Une mise en scène érotique qu’on pourrait créer ensemble, sans tabou.",
+        "Un interdit qu’on pourrait redéfinir à notre façon.",
+        "Une façon de te provoquer dans le quotidien… pour t’exciter en douce.",
+        "Un mot de sécurité qu’on pourrait utiliser… juste au cas où on perd la tête.",
+        "Un fantasme de domination/soumission que j’aimerais mettre en jeu.",
+        "Un jeu de rôle où j’aimerais te voir me “punir” ou me “récompenser”.",
+        "Une règle qu’on pourrait instaurer pour une journée entière de jeu érotique.",
+        "Ce que je ressens quand je suis à ta merci… ou que tu es à la mienne."
+      ]
+    };
+
+    function tirerCarte(type) {
+      const pile = cartes[type];
+      const carte = pile[Math.floor(Math.random() * pile.length)];
+      document.getElementById('revealed').innerText = carte;
+    }
+
+    document.querySelector('.intro').onclick = () => tirerCarte('introspective');
+    document.querySelector('.sexy').onclick = () => tirerCarte('sexy');
+    document.querySelector('.kinky').onclick = () => tirerCarte('kinky');
+  </script>
+</body>
+</html>
